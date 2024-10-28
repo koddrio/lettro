@@ -132,6 +132,7 @@ Your spooky content goes here.
 
 These can now be used in the HTML template like so:
 
+{% raw %}
 ```html
 <h1>{{ subject }}</h1>
 
@@ -139,10 +140,12 @@ These can now be used in the HTML template like so:
 
 {{ content }}
 ```
+{% endraw %}
 
 Some audience veriables are also available both in Markdown and HTML/MJML
 templates, for example:
 
+{% raw %}
 ```markdown
 Hi, {{ audience:name }}!
 
@@ -151,6 +154,7 @@ To unsubscribe follow this link:
 
 {{ audience:unsubscribe_url }}
 ```
+{% endraw %}
 
 Note that unsubscribe URLs are only available if your Audience module supports
 hosted forms. Refer to the module documentation for more details on template
