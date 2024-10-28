@@ -258,6 +258,7 @@ $ lettro analytics --audience=hi@mailbob.io
 The Analytics module extends the content variables to support A/B testing
 for subject lines and content. For example:
 
+{% raw %}
 ```markdown
 ---
 variants:
@@ -278,6 +279,7 @@ Spooky, no?
 You opened it!
 {% endif %}
 ```
+{% endraw %}
 
 Recipients will get randomly assigned a variant, and analytics can then
 be viewed by variant:
