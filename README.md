@@ -30,7 +30,9 @@ list if you'd like to give it a spin.
 
 # Setup
 
-> lettro init
+```bash
+$ lettro init
+```
 
 Lettro initialized successfully, please configure delivery.
 
@@ -61,8 +63,10 @@ audience:
 Our subscribers.sqlite is empty right now. Let's import subs from elsewhere into
 our Lettro audience and tag them too, so we can segment later.
 
-> lettro audience import path/to/existing/subs.csv --tag import
-> lettro audience import path/to/to/shoppers.csv --tag ecommerce-customers
+```bash
+$ lettro audience import path/to/existing/subs.csv --tag import
+$ lettro audience import path/to/to/shoppers.csv --tag ecommerce-customers
+```
 
 The Lettro audience also includes information about bounced addresses, and spam
 complainers. And can also optionally include open and click rates if an
@@ -73,11 +77,13 @@ users.
 
 We can manually interact with the Lettro audience too.
 
-> lettro audience add hi@mailbob.io
-> lettro audience bounce bye@mailbob.io
-> lettro audience spam nomailpls@mailbob.io
-> lettro audience query --email="*@gmail.com" --tag gmail-users
-> lettro audience get hi@mailbob.io
+```bash
+$ lettro audience add hi@mailbob.io
+$ lettro audience bounce bye@mailbob.io
+$ lettro audience spam nomailpls@mailbob.io
+$ lettro audience query --email="*@gmail.com" --tag gmail-users
+$ lettro audience get hi@mailbob.io
+```
 
 Some audience modules also support hosted subscription forms, REST APIs,
 unsubscribe forms, confirmations, one-click unsubscribes and more. These
@@ -95,7 +101,9 @@ with the delivery module to track when a user unsubscribed or bounced, etc.
 Now that we have our Lettro aduience ready and populated, and a delivery module
 up and running, let's create our first Lettro campaign:
 
-> lettro create 001-happy-halloween.md
+```bash
+$ lettro create 001-happy-halloween.md
+```
 
 This file can be edited using your favorite Markdown or HTML editing software,
 can be collaborated on using source code and revision management tools, such
@@ -181,21 +189,27 @@ available via a browser.
 
 Once you've written your campagin, you can preview in different ways:
 
-> lettro preview 001-happy-halloween.md
-> lettro preview 001-happy-halloween.md --template=path/to/different.html
-> lettro preview 001-happy-halloween.md --audience=specific@email.org
+```bash
+$ lettro preview 001-happy-halloween.md
+$ lettro preview 001-happy-halloween.md --template=path/to/different.html
+$ lettro preview 001-happy-halloween.md --audience=specific@email.org
+```
 
 These will preview the specific campagin locally in a browser window. Note that
 browsers display emails differently from email software and services. To send
 a preview email we can use:
 
-> lettro preview 001-happy-halloween.md --send-to=hi@mailbob.io
+```bash
+$ lettro preview 001-happy-halloween.md --send-to=hi@mailbob.io
+```
 
 Once we're happy with the results, we can send the newsletter to our entire
 audience, or a segment:
 
-> lettro send 001-happy-halloween.md
-> lettro send 001-happy-halloween.md --segment=spooky,creepy
+```bash
+$ lettro send 001-happy-halloween.md
+$ lettro send 001-happy-halloween.md --segment=spooky,creepy
+```
 
 Lettro keeps track of specific issues sent to specific recipients, and will
 attempt to never send the same issue to the same recipient twice.
@@ -205,8 +219,10 @@ and could be interrupted by Ctrl+C, a crash, Internet problems and other
 issues. You can check the status of an existing campagin, and resume if
 necessary:
 
-> lettro send 001-happy-halloween.md --status
-> lettro send 001-happy-halloween.md
+```bash
+$ lettro send 001-happy-halloween.md --status
+$ lettro send 001-happy-halloween.md
+```
 
 # Analytics
 
@@ -228,12 +244,16 @@ emails, allowing Lettro to capture the open rate. All links will also be
 replaces with tracked URLs for click tracking. After a campagin is sent, we
 can check the performance with:
 
-> lettro analytics 001-happy-halloween.md
+```bash
+$ lettro analytics 001-happy-halloween.md
+```
 
 The module also provides per-user analytics, so we can check a subscriber's
 full engagement history using:
 
-> lettro analytics --audience=hi@mailbob.io
+```bash
+$ lettro analytics --audience=hi@mailbob.io
+```
 
 The Analytics module extends the content variables to support A/B testing
 for subject lines and content. For example:
@@ -262,7 +282,9 @@ You opened it!
 Recipients will get randomly assigned a variant, and analytics can then
 be viewed by variant:
 
-> lettro analytics 001-happy-halloween.md --by-variant
+```bash
+$ lettro analytics 001-happy-halloween.md --by-variant
+```
 
 You will also be able to see which user was assigned which variant in the
 user engagement history. These metrics are per-campagin.
